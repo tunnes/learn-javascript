@@ -1,0 +1,649 @@
+
+==================================================
+            Revisão - PSI (P1)
+==================================================
+
+
+================================================================================================
+    Arrays    
+================================================================================================
+
+Arrays são usadas para armazenar diversos elementos em uma mesma variável.
+É uma lista de elementos. Arrays podem ser percorridos (for, while) e seus elementos podem ser acessados
+via índice. 
+[Importante: Índices de um array sempre começam em zero!]
+
+array = ["Ola", "Eai", "Oi"]
+array[2]; //Retorna "Oi"
+
+================================================================================================
+    Objetos    
+================================================================================================
+Conjunto de variáveis com chaves(Exemplo: idade) de valores(Exemplo: 13).
+Objetos possuem seus atributos definidos através de chaves e valores, como no exemplo abaixo:
+
+objeto = {chave: valor}
+
+Formas de acesso e modificação:
+-------------------------------
+
+Pode-se acessar os valores de atributos de um objeto através das 'chaves'. 
+Exemplo:
+
+//Objeto Pessoa
+var pessoa = {nome:"Maria", idade:15};
+
+pessoa.nome  //Retorna: Maria
+pessoa["idade"]  //Retorna: 15
+alert(pessoa.idade) //Alerta: 15
+pessoa.idade = 14;  //Muda o valor de pessoa.idade
+
+
+//Objeto Sorvete
+var sorvete = { sabor: "Flocos", marca:"Kascão" };
+
+alert (sorvete["sabor"]); //Alerta: Flocos
+sorvete.sabor = "Chocolate"; //Muda o valor da chave 'sabor' do objeto
+
+
+//Objeto Cliente
+var cliente = { nome:"Pedro", idade:29, salario: 2000 }
+
+alert(cliente.nome); //Alerta: 'Pedro'
+alert(cliente.idade); //Alerta: 29
+alert(cliente.salario); //Alerta: 2000
+
+
+Mais sobre:
+-----------
+http://www.w3schools.com/js/js_objects.asp
+http://www.linhadecodigo.com.br/artigo/304/javascript-objetos-e-propriedades.aspx
+
+
+
+================================================================================================
+            DOM: Document Object Model
+================================================================================================
+
+
+O DOM é uma interface de programação para documentos HTML, XML a SVG.
+Ela provê uma representação estruturada do documento como uma 'árvore'.
+O DOM define métodos que permitem acesso a árvore, para que estes possam mudar sua estrutura, estilo e conteúdo.
+O DOM provê uma representação do documento como um grupo estruturado de nós e objetos, que possuem diversas
+propriedades e métodos.
+O nodos também podem possuir manipuladores de eventos (event handlers) atribuídos a eles e, uma vez que o evento é disparado,
+o manipulador de eventos é executado. Basicamente, ele conecta as páginas à scripts ou a outras linguagens
+de programação.
+
+| Embora o DOM seja frequentemente acessado via JavaScript, ele NÃO é parte da linguagem JavaScript e pode
+| ser acessado por outras linguagens!
+
+
+Mais sobre (Fonte):
+https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model
+
+
+=============================================
+        Métodos de acesso ao DOM:
+=============================================
+
+getElementById()
+----------------
+Retorna o elemento encontrado na página, com o id (passado por parametro) especificado. 
+Exemplo: 
+
+document.getElementById("p1");
+    --> Retorna o elemento de id 'p1' encontrado na página (Lembrando que só deve haver um elemento com determinado ID!)
+Mais: http://www.w3schools.com/jsref/met_document_getelementbyid.asp
+
+
+.getElementsByTagName()
+-----------------------
+Retorna uma lista de elementos (nodelist) com a tag especificada no parâmetro.
+Exemplo:
+
+document.getElementsByTagName("div")
+    --> Retorna um array com os elementos div da página
+
+document.getElementsByTagName("p")[2]
+    --> Retorna o elemento de índice 2 do array retornado por 'getElementsByTagName("p")'
+
+Mais: http://www.w3schools.com/jsref/met_document_getelementsbytagname.asp     
+
+
+getElementsByClassName()
+------------------------ 
+Retorna uma lista de elementos (nodelist) com a classe especificada no parâmetro.
+Exemplo:
+
+document.getElementsByClassName("texto")
+    --> Retorna um array com os elementos div da página
+Mais: http://www.w3schools.com/jsref/met_document_getelementsbyclassname.asp
+
+
+----------------------------------------------------
+        querySelector() / querySelectorAll()
+----------------------------------------------------
+
+
+O querySelector() retorna o primeiro elemento encontrado com um determinado seletor css (passado 
+via parâmeto) no documento.
+
+O querySelectorAll() retorna uma lista (nodelist) com os elemento encontrados com um determinado seletor css (passado 
+via parâmeto) no documento.
+
+
+IMPORTANTE LEMBRAR:
+-------------------
+querySelector()    -->  Retorna um elemento específico.
+querySelectorAll() -->  Retorna uma lista de elementos.
+
+
+Exemplo:
+--------
+  document.querySelector("#texto");  //Retorna um elemento com o id 'texto'
+  document.querySelectorAll("div");  //Retorna uma lista com todos os elementos <div>
+  
+  
+Mais sobre:
+-----------
+  http://www.w3schools.com/jsref/met_document_queryselector.asp
+  https://developer.mozilla.org/pt-BR/docs/Web/API/Element/querySelector
+  http://www.w3schools.com/jsref/met_document_queryselectorall.asp
+  https://developer.mozilla.org/pt-BR/docs/Web/API/Element/querySelectorAll
+
+
+
+====================================
+        Métodos de inserção:
+====================================
+
+appendChild()
+-------------
+O método appendChild() insere um elemento como último filho de um 'node'.
+Adiciona um nó ao final da lista de filhos de um nó pai especificado. 
+Se o nó já existir no documento, ele é removido de seu nó pai atual antes de ser adicionado ao novo pai.
+
+Sintaxe:
+
+elementoPai.appendChild( elementoFilho );
+//Adiciona o node 'elementoFilho' como filho de 'elementoPai'
+
+Mais sobre:
+http://www.w3schools.com/jsref/met_node_appendchild.asp
+https://developer.mozilla.org/pt-BR/docs/Web/API/Node/appendChild
+
+
+
+insertBefore()
+--------------
+O método insertBefore() insere um elemento como 'filho', logo antes de um elemento 'filho' 
+existente, que você especifica.
+
+Sintaxe:
+elementoPai.insertBefore( novoFilho , filhoExistente)
+
+Mais sobre:
+http://www.w3schools.com/jsref/met_node_insertbefore.asp
+https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
+
+
+
+================================================================================================
+                    String
+================================================================================================
+
+Strings são cadeias de caracteres que devem ser definidas dentro de aspas simples ('') ou 
+aspas duplas (""). São úteis para guardar dados que podem ser representados em forma de texto. 
+
+É possível acessar caracteres de Strings através de seu índice, como abaixo:
+
+document.write( "Melissa"[1] ); //e
+var g = 'Goku';
+alert( g[0] ); //G
+
+Mais:
+http://www.w3schools.com/jsref/jsref_obj_string.asp
+http://www.w3schools.com/js/js_string_methods.asp
+
+
+
+--------------------------------
+        Método .split()        
+--------------------------------
+
+O método .split() divide uma String em um ARRAY de substrings!
+
+Sintaxe:
+string.split(separador para a divisão);
+
+No exemplo abaixo, a string é dividada a cada espaço vazio:
+-----------------------------------------------------------
+var string = "Como isso funciona?";
+var resultado = string.split(" ");
+
+'resultado' será um array com os valores: Como,isso,funciona?
+
+
+Abaixo, a string é dividida em cada posição do vetor, pois o parâmetro do método foi passado como ' aspas vazias' (""):
+-----------------------------------------------------------------------------------------------------------------------
+alert( "É isso aí!".split('') ); //Alerta: É, ,i,s,s,o, ,a,í,!
+
+| Importante: Se nada for passado no parâmetro, dessa forma 'split()', o método retornará um array com um 
+| único elemento, a string inteira! 
+
+
+Mais:
+http://www.w3schools.com/jsref/jsref_split.asp
+
+
+
+================================================================================================
+                    EVENTOS
+================================================================================================
+
+São eventos atrelados à tags dentro do HTML. 
+Podem ser definidos no HTML (em um button, ou input, por exemplo) ou pelo script. 
+Estes eventos chamam uma função definida, que não têm necessariamente ligação com o elemento que a chama.
+É possível passar o próprio elemento que chama a função como referência (this) via parâmtro nesta função, 
+ou identificar este elemento.
+
+EXEMPLOS:
+---------
+    <input id="texto" type="text" onfocus="teste()">
+    function teste(){
+        //Vamos mudar a cor de fundo deste campo de texto
+        var texto = document.querySelector("#texto");
+        texto.style.backgroundColor = "red";
+    }
+      
+    //Passando a si próprio como parâmetro (this)
+    <input id="texto" type="text" onfocus="teste2(this)">
+    function teste2(elemento) {
+        //O elemento já está vindo como parâmetro, sucesso!
+        elemento.style.backgroundColor="red";  
+    }
+    
+
+Definindo uma função para um evento, via HTML:
+----------------------------------------------
+<button onclick="teste()">Clique Aqui</button>
+Aciona a função 'teste()' no evento 'onclick' do botão.
+
+
+Definindo uma função para um evento, via script:
+------------------------------------------------
+function teste01(){
+    var botao = document.querySelector('#b1');
+    botao.onclick = function(){    
+    
+        //Definição da função
+        
+    }    
+}
+
+
+-------------
+E os eventos?
+-------------
+
+onclick: Ao clicar
+onfocus: Ao focar
+onblur: Ao Desfocar
+onmouseover: Ao passar o cursor sobre
+onmouseout: Ao tirar o cursor de cima
+onchange: Ao elemento ser alterado
+
+(ENTRE OUTROS...)
+
+
+Mais:
+-----
+http://www.w3schools.com/js/js_events.asp
+http://www.w3schools.com/jsref/dom_obj_event.asp
+http://www.devmedia.com.br/trabalhando-com-eventos-em-javascript/28521    
+
+
+
+================================================================================================
+                        FUNÇÕES
+================================================================================================
+
+Uma função é um conjunto de instruções que executa uma tarefa ou calcula um valor. 
+Para usar uma função, você deve defini-la em algum lugar no âmbito do qual você quiser chamá-la.
+A função pode receber parâmetros OU não, e pode retornar um valor OU não.
+
+Exemplo:
+--------
+//A função abaixo recebe um valor 'x' como parâmetro e retorna seu valor
+function retornaDobroX(x){
+  return x*2;  
+}
+
+//A funçãom abaixo não recebe nenhum parâmetro e apenas executa uma instrução alert, quando chamada.
+function digaOla(){
+  alert("Olá!");
+}
+
+-----------------------------------------
+            Tipos de funções:            
+-----------------------------------------
+
+Funções Anônimas:
+=================
+São funções que não recebem nome e que podem ser atribuídas à variáveis.
+A finalidade de uma função anônima é exatamente a de permitir passá-la como se fosse um objeto qualquer, 
+que você pode atribuir a uma variável, independentemente de haver um nome para a função.
+
+Exemplo:
+--------
+    //A var 'y' armazena uma função anônima!
+    var y = function(){
+        alert("Olá!");
+    }
+    y();
+
+
+ FIRST-CLASS FUNCTIONS (Funções de Primeira Classe)
+====================================================
+Permite que funções sejam passadas como valores (argumentos) para outras funções, que funções sejam 
+retornadas por outras funções, e que funções sejam atribuídas à variáveis.
+As funções podem ser tratadas como valores que podem ser passados, manipulados e retornados.
+(Tanto as chamadas como as definições)
+
+Exemplos:
+---------
+
+  //Atribui à var
+  var saudacao = function(nome){
+        return "Como vai, "+nome+"?";
+  }                    
+  document.write( saudacao("Shiryu") ); // Como vai, Shiryu?
+                         
+  //A função 'ola' recebe uma função 'fn' e um nome                         
+  function ola(fn, nome){
+        //E alerta o retorno da aplicação de 'fn' a nome: fn(nome)
+        alert(fn(nome));                        
+  }
+
+
+HIGH-ORDER FUNCTIONS (Funções de Alta Ordem)
+==============================================
+
+São aquelas que:
+
+ --> Recebem uma ou mais funções como argumentos (parâmetros)
+ --> Devolvem (retornam) outra função como valor de retorno
+
+Este conceito permite que funções possam ser tidas como valores a serem produzidos, consumidos e compostos. 
+Resumindo, função de alta ordem é uma função que recebe ou retorna uma função. 
+
+Exemplos:
+---------
+
+function aplicaAoArray(array, funcao) {
+    for (var i = 0, total = array.length; i<total; i++) {
+        funcao(array[i]);
+    }
+}
+
+var func = function(x){
+    document.write( x + "<br>");
+}
+    
+//aplicaAoArray recebe um array de strings e a função 'func'
+aplicaAoArray(["Ola","Eai","Oi"], func);
+
+
+Nesse exeplo, a função de alta ordem 'aplicaAoArray' recebe um array e uma função como argumento(func) 
+e percorre esse array aplicanto a funcao recebida a cada elemento do array.  
+
+
+Importante:
+-----------
+| Uma linguagem tem funções de primeira classe, quando funções podem ser tratadas como valores que podem ser 
+| passados, manipulados, retornados. Ou seja, é possível operar funções. 
+| Este conceito é um atributo da linguagem, ou ela tem ou não tem.
+| Função de alta ordem é uma função que recebe ou retorna uma função. 
+| Este conceito é um atributo da função, ou ela é ou não é.
+
+
+Mais sobre funções:
+-------------------
+http://www.tiexpert.net/programacao/web/javascript/funcoes.php
+http://www.devfuria.com.br/javascript/refs/funcoes-anonimas/
+https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Fun%C3%A7%C3%B5es
+http://www.w3schools.com/js/js_functions.asp
+
+
+
+================================================================================================
+                        CALLBACK
+================================================================================================
+
+Quando determinado evento ocorre, o callback são as funções a serem executadas.
+'Callbacks são porções de código que serão executados no futuro, em um tempo conveniente.'
+
+Exemplo:
+--------
+window.onload = function(){
+    document.write("Essa é uma função de callback!!!");
+};
+
+
+===========================================
+            Método setInterval()            
+===========================================
+O método setInterval() chama uma função ou avalia uma expressão em um intervalo de tempo especificado (em mílisegundos).
+O método continua a chamar a função até o que o método clearInterval() é chamado ou a janela é fechada.
+
+Sintaxe:
+--------
+setInterval(funcao, 1000) 
+    // O primeiro parâmetro é a função a ser executada.
+    // O segundo parâmetro indica o tamanho do intervalo de tempo entre cada execução (em milisegundos).
+    
+
+Interrrompendo uma execução:
+----------------------------
+O método clearInterval() usa a variável com o retorno do setInterval().
+Exemplo:
+
+    myVar = setInterval(funcao, 5000);
+    clearInterval(myVar);
+    
+    
+Mais sobre:
+-----------
+    http://www.w3schools.com/jsref/met_win_setinterval.asp    
+    JS Timing Events: http://www.w3schools.com/js/js_timing.asp
+
+
+===========================================
+            Método setTimeout()            
+===========================================
+O método setTimeout() chama uma função após um tempo específico (em milisegundos).
+A função é executada apenas uma vez!
+
+Sintaxe:
+--------
+setTimeout(funcao, 5000);
+
+É possível impedir a execução de uma função definida em setTimeout() utilizando o método clearTimeout():
+ X = setTimeout(funcao, 100000);
+ clearTimeout(x)
+
+Mais sobre:
+-----------
+    http://www.w3schools.com/jsref/met_win_settimeout.asp
+    JS Timing Events: http://www.w3schools.com/js/js_timing.asp 
+    
+    
+-------------------------------------------------------------------------------------------------------    
+    
+    
+==========================================================================
+| ====================================================================== |
+||                      -------------------------                       ||
+||                      OUTROS  TÓPICOS E MÉTODOS                       ||
+||                      -------------------------                       ||
+| ====================================================================== | 
+==========================================================================
+
+
+========================
+        CURRYING        
+========================
+
+-O que é?
+---------
+
+Currying é uma forma de construir funções que permitem aplicação parcial dos argumentos da função.
+É possível passar todos os argumentos que a funçãoe espera e conseguir um resultado, ou passar apenas 
+uma parte desses argumentos e receber como retorno uma função que espera o restante dos argumentos.
+
+Exemplo:
+--------
+
+function olaCurr(saudacao) {
+    return function(nome) {
+        alert(saudacao + ", " + nome + "!");
+     };
+ }
+
+Com o exemplo acima, o currying nos permite criar uma nova função para qualquer tipo de saudação, e passar
+para essa nova função o nome de quem queremos saudar:
+
+var saudaOla = olaCurr("Eai");
+saudaOla("Maria"); //"Eai, Maria"
+saudaOla("Joao"); //"Eai, Joao"
+
+
+var x = olaCurr("Eai");
+document.write(x); //Retorna: function (nome) { alert(saudacao + ', ' + nome + '!'); }
+
+------------------------
+function somaCurr(x) {
+    return function(y) {
+        alert(x+y);
+     };
+ }
+
+var XX = somaCurr(10);
+document.write(XX); //Retorna: function (y) { alert(x + y); }
+var YY = XX(5); //Alerta: 15
+
+
+Podemos também usar a função original diretamente, apenas passando os parâmetros em parênteses separados, 
+um  após o outro:
+
+olaCurr("Ei")("Goku"); //"Ei, Goku"
+
+
+->Fonte: http://www.sitepoint.com/currying-in-functional-javascript/
+
+--------------------------------------------------------------------------------
+
+==========
+parseInt()
+==========
+Converte uma string em um número inteiro.
+Ideal para converter um valor de input do tipo text, ou valor vindo de um elemnto html.
+Exemplos: 
+
+    parseInt("13");  //Retorna 13
+    Erro: parseInt("Felix"); //Retorna NaN
+
+=======
+isNaN()
+=======
+Verifica se uma conversão para inteiro deu errado e retorna um valor booleano (true or false).
+NaN significa "Not a Number". Exemplo:   
+
+    isNaN(parseInt("13")); //False
+    isNaN(parseInt("Felix")); //True  
+
+=============
+    LOOPS    
+=============    
+
+Estruturas de repetição servem para percorrer um array (vetor, lista) um determinado número de vezes.
+São aplicadas somente nos índices, e não nos elementos.
+A cada 'volta' do loop, um determinado elemento da lista é acessado.
+
+  FOR:
+  ----
+    //'i' representa o contador do Loop
+    for(var i=0; i<lista.length; i++){ 
+        alert(lista[i]);
+    }
+    
+    for(var i=0, total=lista.length; i<total; i++){ }
+    //(var total) Boa prática. Melhora a performance!  
+
+  FOR IN:
+  -------
+    Recomendado apenas para objetos, não listas!!!!!!!!!!!!!!!!!!!
+    Exemplo: Percorrer um objeto JSON (Javascript Object Notation).
+    
+        for (var i in lista){
+            alert(lista[i]);
+        }
+      
+  WHILE:
+  ------
+    Alternativa para estrutura de repetição onde o índice deve ser definido FORA do corpo de repetição.
+    No corpo fica apenas a incrementação deste índice (contador), e as instruções para execução no loop.
+    Exemplo:
+        var i=0; 
+        while(i<lista.length){
+            alert(lista[i]);                   
+            i++;                       
+        }
+
+
+
+=================
+Método .indexOf()
+=================
+
+O método indexOf() retorna a posição da primeira ocorrência de um valor específico em uma string.
+Se o valor buscado NÃO for encontrado, o método retorna -1.
+Importante: O método indexOf() é Case Sensitive (diferencia letras maiúsculas de minúsculas)!
+
+Sintaxe:
+    string.indexOf( ValorASerBuscado, aPartirDeOnde )
+    //O segundo parâmetro é opcional! Por default, se inicia em 0.
+
+Exemplo:
+    var str = "Hello world, welcome to the universe welcome!";
+    var n = str.indexOf("welcome");
+    //O retorno de n será 13
+
+Mais sobre:
+-----------
+http://www.w3schools.com/jsref/jsref_indexof.asp
+https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf
+
+
+
+
+
+========================================
+ window.innerWidth e window.innerHeight
+========================================
+
+A propriedade innerWidth retorna a LARGURA da área de contéudo da janela.
+A propriedade innerHeight retorna a ALTURA da área de contéudo da janela.
+
+Essas propriedades são apenas leitura e não incluem o espaço do scrollbar!
+
+Sintaxe:
+--------
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+
+Mais sobre:
+-----------
+http://www.w3schools.com/jsref/prop_win_innerheight.asp
+https://developer.mozilla.org/pt-BR/docs/Web/API/Window/innerWidth

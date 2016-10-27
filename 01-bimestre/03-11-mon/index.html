@@ -1,0 +1,31 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        function w3school(){
+            var oqVeio;
+            var xhr = new XMLHttpRequest();
+            xhr.onreadytstatechange = function(){
+                if(xhr.onready == 4 && xhr.stataus == 200 ){
+                  oqVeio = xhr.ResponseXML;
+                }
+            }
+            xhr.open("GET", "http://www.w3schools.com/xml/cd_catalog.xml", true);
+            xhr.send();
+            
+            for(var i in oqVeio){
+                console.log(oqVeio[i]);
+            }
+    }
+    /*https://ide.c9.io/melissamoreira/monitoriajs*/
+    </script>
+</head>
+<body>
+    FUNCAO.
+    <script>
+        w3school();
+    </script>
+</body>
+</html>
+

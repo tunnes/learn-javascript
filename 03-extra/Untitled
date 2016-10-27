@@ -1,0 +1,414 @@
+========================
+Monitoria | (03/06/2016)
+========================
+
+
+======================================================
+======================REVISÃO P2======================
+======================================================
+
+
+==============================================================
+                        jQuery  
+==============================================================
+
+jQuery é uma library que simplifica o desenvolvimento em JavaScript.
+Foi criada em 2006 e têm o 'lema':
+
+    "Write less, do more." 
+  (Escreva menos, faça mais)
+
+
+
+========================
+        SELETORES       
+========================
+
+
+O jQuery usa a sintaxe $('elemento') para fazer a seleção de um elemento (ou vários) no documento e
+utiliza seletores CSS (class, id, etc).
+Exemplos:
+
+$("#b1")               --> Seleciona o elemento com id 'b1'
+$(".p2")               --> Seleciona os elementos com class 'p2'
+$("div")               --> Seleciona os elementos div
+$(".botao.confirma")   --> Seleciona os elementos que tenham as classes 'botao' e 'confirma'
+$("ul li:first-child") --> Seleciona o primeiro elemento 'li' de todo elemento 'ul'.
+
+É possível também selecionar diversos elementos diferentes:
+
+$("div, p.p1, #botao") --> Seleciona todos os elementos div, os elementos p com a class 'p1' e o 
+elemento com o id 'botao'. 
+Para selecionar vários elementos basta separá-los por vírgula, como no exemplo acima.
+
+Ou selecionar todos:
+$('*') --> Assim como no CSS, o * seleciona todos os elementos.
+
+Mais sobre seletores:
+http://www.tutorialspoint.com/jquery/jquery-selectors.htm
+
+========================
+        EVENTOS             
+========================
+
+Temos a possibilidade de criar páginas dinâmicas com o uso de eventos.
+Eventos são ações que ocorrem em uma aplicação web.
+
+Exemplos de eventos:
+
+- O clique do mouse (click)
+- Colocar o mouse sobre um elemento (mouseover)
+- O envio de um formulário (submit)
+
+Quando um evento é disparado é possível usar uma função customizada para realizar alguma tarefa.
+O jQuery possibilita unir eventos com funções (Event Handlers) de forma bem simples.
+
+
+Sintaxe:
+--------
+
+$(elemento).evento(function());
+
+$(elemento).evento(function(){
+    ....
+});
+
+Nas duas sintaxes acima são apresentados 3 elementos:
+
+- O elemento em que ocorrerá o evento.
+- O evento em si.
+- E a função que será disparada com esse evento. Pode ser tanto a definição dessa função ou apenas a chamada.
+
+
+Exemplos:
+--------
+
+$('#botao').click(function(){
+   alert("Você clicou no botão!") 
+});
+
+
+$("p").click(function(){
+    $(this).hide();
+});
+
+
+Document Ready 
+--------------
+O evento .ready atribuído ao documento (document) determina que a função especificada só ocorrerá 
+quando a página estiver completamente carregada.
+
+Ex.:
+
+$(document).ready(function(){
+ //instruções 
+});
+
+
+jQuery Effects
+--------------
+
+.fadeIn()
+    Aplica um efeito de fadeIn ao elemento.
+.fadeOut()
+    Aplica um efeito de fadeOut ao elemento.
+.hide()
+    Esconde o elemento.
+.show()
+    Exibe o elemento.
+.slideToggle()
+    Faz um efeito de 'abre-fecha' no elemento.
+
+
+Revisando: Regra geral
+----------------------
+$(seletor css).evento(ação)
+
+
+Seletor :eq(n)
+---------------
+Seleciona o elemento de index 'n' dos elementos encontrados.
+Os seletores baseados em índice (:eq(), :lt(), :gt(), :even, :odd) filtram o set de elementos
+que foram retornados pela expressão que os precede.
+Por exemplo, se $('p') retorna 5 elementos, estes elementos estarão relacionados com os índices de 0 a 4.
+
+<p>P1</p>
+<p>P2</p>
+<p>P3</p>
+<p>P4</p>
+<p>P5</p>
+
+$(function(){
+    alert($('p:eq(3)').html());  
+});
+
+Mais sobre:
+https://api.jquery.com/eq-selector/
+
+
+Seletor :not()
+---------------
+Seleciona todos os elementos que não se enquadram em determinado seletor (passado dentro dos parênteses).
+Vários seletores podem ser passados no 'filtro' do not, basta separá-los por vírgula dentro dos parênteses.
+Usando o exemplo dos parágrafos acima:
+
+$(function(){
+  $('p:not(:eq(0),:eq(4), :eq(2))').css('color','blue');
+  $('p:not(p:last)').click(function(){
+    alert($(this).html());
+  })
+}); 
+
+Mais sobre:
+https://api.jquery.com/not-selector/
+
+
+Select next()
+-------------
+Retorna o elemento 'irmão' imediatamente após cada elemento retornado pelo seletor.
+Se um seletor for passado (entre os parênteses do next), ele seleciona apenas o próximo irmão que se enquadre no seletor!
+Exemplo:
+
+$( "p" ).next( ".ola" ).css( "background", "yellow" );
+//Seleciona todos os elementos imediatamente após uma tag 'p', contanto que esses contenham a classe 'ola'
+
+https://api.jquery.com/next/
+http://www.w3schools.com/jquery/traversing_next.asp
+
+
+
+==============================================
+            CONTEÚDO EXTRA:
+==============================================
+
+.each()
+-------
+Percorre todos os elementos retornados e aplica determinada ação a eles.
+Exemplo:
+
+<p>1</p>
+<p>2</p>
+<p>3</p>
+
+//Somando todos os elementos
+$(function(){
+  var soma = 0;
+  $('p').each(function(){
+    soma += parseInt($(this).html());
+  })
+  alert(soma);  
+});
+
+
+Outros métodos úteis em formulários:
+------------------------------------
+
+blur() -- Ao desfocar do campo
+    https://api.jquery.com/blur/
+
+change() -- Ao desfocar do campo após alterar seu estado
+    https://api.jquery.com/change/
+
+focus() -- Ao focar em um campo
+    https://api.jquery.com/focus/
+
+submit() -- Ao enviar um formulário
+    https://api.jquery.com/submit/
+
+val() -- O value do campo
+    https://api.jquery.com/val/
+
+
+
+==============================================================
+                    Object e Prototype
+==============================================================
+
+
+Objetos
+-------
+
+É o equivalente as classes(de Orientação a Objetos) no JS.
+Possui chaves e valores para armazenar suas propridades e podem ou não conter métodos!
+Um objeto é declarado pela notação de chaves.
+
+Exemplo:
+    var Pessoa = { nome:"Felix", sexo:"M", idade:13 };
+
+Formas de acesso e modificação dos atributos de um objeto:
+Podemos acessar atributos de um objeto por meio da "notação de ponto" ou da "notação de colchetes".
+
+Exemplos:
+    
+    Notação de ponto:
+    pessoa.nome       // Acessa a propriedade 'nome' do objeto e retorna o valor 'Felix'
+    
+    Notação de colchetes:
+    pessoa["idade"]   // Acessa a propriedade 'idade' do objeto e retorna o valor 13
+    
+    Atribuindo um novo valor ao atributo:
+    pessoa['nome'] = "Juca";  // Muda o valor da propriedade 'nome' do objeto 'pessoa'
+    pessoa.idade   = 14;      // Muda o valor da propriedade 'idade' do objeto 'pessoa'
+
+
+Método Construtor de um Objetos
+-------------------------------
+
+Quando definimos um método construtor para deteminado objeto, podemos criar diversas instâncias deste objeto!
+O construtor detemina o 'molde' do objeto.
+
+Exemplo:
+
+    //Método contrutor do objeto Pessoa
+    var Pessoa = function( nome, sexo, idade ){
+            
+            // Aqui são definidas as características (atributos) do objeto
+            //'this' representa a instância do objeto que será criado
+            this.nome = nome;
+            this.sexo = sexo;
+            this.idade = idade;
+            this.especie = "Humano"
+    }
+    
+O construtor recebe os valores dos atributos via parâmetro e instancia o objeto com esses valores.
+Também é possível declarar um valor padrão de determinado atributo para todas as instâncias, como no caso
+do atributo 'especie' acima. Ainda assim, é possível alterar esse atributo, posteriormente, na instância criada.
+
+var Maria = new Pessoa( "Maria", "F", 28 );
+    alert(Maria.nome +" "+ Maria.sexo +" "+ Maria.idade +" "+ Maria.especie);
+
+Alterando uma propridade de Maria:
+    Maria['especie'] = "Alien";
+    alert("Maria agora é " + Maria.especie);
+
+    
+    
+Prototype
+---------
+
+Se Objetos são o que nos possibilita usar o paradigma de Orientação a Objetos no JS,
+podemos dizer que o Prototype é o que nos possibilita utilizar o conceito de Herança entre os  Objetos.
+
+
+O Prototype é o que nos permite atribuir métodos aos objetos.
+Ao definir uma função no prototype de um Objeto, todas as intâncias deste objeto terão acesso a esse método.
+Exemplos:
+
+Pessoa.prototype.correr = function(lugar){
+  alert(this.nome + " corre até " + lugar);
+}
+
+Maria.correr("Santo André");
+
+Pessoa.prototype.comprimenta = function(fulano){
+  alert(this.nome + " diz: 'Olá " + fulano.nome + "!");
+}
+
+Supondo que, além de Maria, criamos outra Pessoa: Julia
+var Julia = new Pessoa( "Julia", "F", 33 );
+
+Maria.comprimenta(Julia);
+
+
+
+Mais sobre:
+-----------
+https://developer.mozilla.org/pt-PT/docs/Javascript_orientado_a_objetos
+http://www.igorapa.com/objetos-javascript-part1.html
+http://www.igorapa.com/objetos-javascript-part2.html
+http://www.igorapa.com/prototype
+
+
+
+
+=============
+    Slice    
+=============
+
+Operações DOM do tipo 'getElementsByTagName()' normalmente retornam uma NodeList.
+NodeLists possuem propriedade 'length' e também podem ter seus elementos acessados via índice, 
+como um array, mas não são arrays!  
+
+Portanto, para usarmos os métodos de array disponíveis no JS, podemos converter uma nodelist em um
+array genuíno ao usar o slice.call().
+
+Vale lembrar que ao convertermos um nodelist em array, nós o tornamos estático!
+(Pois a cada mudança que ocorre no documento, o nodelist é automaticamente atualizado.)
+
+Resumindo: O slice converte uma NODELIST para um ARRAY puro!
+
+Ao utilizar Array.prototype.slice.call() nós acessamos diretamente o prototype de Array.
+O atalho [].slice nos permite acessar a propriedade Prototype do objeto por meio da instância.
+
+Mais sobre:
+-----------
+
+Obj. Array: http://www.w3schools.com/jsref/jsref_obj_array.asp
+            https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/prototype#Methods
+            
+NodeList:   http://www.devfuria.com.br/javascript/dom-nodelist/
+            http://www.w3schools.com/xml/dom_nodelist.asp
+            
+Array.prototype.slice.call  VERSUS  [].slice.call
+http://www.2ality.com/2011/08/array-prototype-performance.html
+
+
+
+===============
+    ForEach    
+===============
+
+O método forEach() é um método de Array que executa uma determinada função (passada por parâmetro) para 
+cada elemento em um array, de forma ordenada.
+
+Sintaxe:
+array.forEach(function(elemento ,indice));
+
+Mais sobre:
+-----------
+http://www.w3schools.com/jsref/jsref_forEach.asp
+
+
+===========
+    Map
+===========
+
+
+O map() percorre um array e aplica determinada função (passada por parâmetro) em cada elemento deste array, 
+então retorna um NOVO ARRAY com os resultados.
+
+Obs.: O map() NÃO altera o array original!
+
+Mais sobre:
+-----------
+http://www.w3schools.com/jsref/jsref_map.asp
+
+
+==============
+    Filter
+==============
+
+Retorna uma nova lista com itens que retornem verdadeiro ou falso, dado uma função	que percorre 
+todos os seus itens. Ou seja, ele recebe um array, e retorna um outro array com os elementos do
+array inicial que satisfaçam determinada condição!
+
+Obs.: O filter() NÃO altera o array original!
+
+Mais sobre:
+-----------
+http://www.w3schools.com/jsref/jsref_filter.asp
+
+==============
+    Reduce
+==============
+
+O reduce() 'reduz' uma lista a um único valor.
+Ele recebe um valor inicial e executa determinada função em cada elemento do array, 
+resultando em um valor final.
+
+Sintaxe:
+array.reduce( function( valorInicial, elemento ), valorInicial);
+
+Mais sobre:
+-----------
+http://www.w3schools.com/jsref/jsref_reduce.asp

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <button id="play">Iniciar</button>
+        <script>
+            var Posicao = function (x,y){
+                this.x = x;
+                this.y = y;
+            }
+            Posicao.prototype.atualiza = function(){
+                this.x = event.clientX;
+                this.y = event.clientY;
+            }
+            var play = false;     
+            var vetorPosicoes = [];
+            while (play){
+                var pos = new Posicao(0,0);
+                pos.atualiza()
+                vetorPosicoes.push(pos);
+            }  
+            $("#play").click( function (){
+                if(play){ 
+                    play = false;
+                }else{ 
+                    play = true;
+                }     
+            });
+            
+           
+        </script>
+    </body>
+</html>

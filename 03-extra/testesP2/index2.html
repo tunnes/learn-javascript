@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <body>
+       <ol>
+          <li  class="MyClass">Coffee</li>
+          <li  class="MyClass">Tea</li>
+          <li> Milk</li>
+          <li> Coffee</li>
+          <li  class="MyClass">Tea</li>
+          <li> Milk</li>
+          <li  class="MyClass">Fim</li>
+          
+        </ol>
+    </body>
+    <script>
+        ex();
+        function ex(){
+            var todosLI = document.getElementsByClassName("MyClass");
+            todosLI = [].slice.call(todosLI);
+            console.log(todosLI.reduce(function(total,elemento){
+               return total = total + elemento.innerHTML;
+            },""));
+        }
+    </script>
+</html>

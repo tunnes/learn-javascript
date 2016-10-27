@@ -1,0 +1,119 @@
+<!Doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title> OLA MUNDO </title>
+        <!-- DOM É UM MODELO DE OBJETOS -->
+        <script>
+        function olaDOM(){
+            var p = document.getElementById("p1");
+            for(var i in p){
+                document.write(i + " - " +p[i] + '<br>');
+            }
+        }
+        function olaDOM2(){
+            var a = document.getElementById("a1");
+            a.href = "http://www.google.com.br";
+            // for(var i in a){
+            //     document.write(a[i] + "<br>");
+            // }
+        }
+        function mudaSource(){
+         var img = document.getElementById("im1");
+         alert("certeza");
+         img.src="http://hortifrutimandaqui.com.br/wp-content/uploads/2015/10/una-uva-capaz-de-sobrevivir-al-calentamiento-global-5.jpg";
+             
+        }
+        // for each ele pega todo os indices converte inteiro independente de ser indice numerico ou não;
+        // for normal apenas percorre indices inteiros.
+        function getTudinho(){
+            tudo = document.getElementsByTagName("p"); // ele pega todos gerando um array de objetos.
+            for(var i = 1; i < tudo.length; i++){
+                alert(tudo[i]);
+            }
+        }
+        function corDif(){
+            var ps = document.getElementsByTagName("p");
+            for(var i = 0; i < ps.length; i++){
+                ps[i].style.backgroundColor = "yellow";
+            }
+        }
+        
+        function ex2(){
+            var todos   = document.getElementsByTagName("p");
+            var soma    = 0;
+            var menor   = parseInt(todos[0].innerHTML);
+            var mult    = 0;
+            
+            for(var i = 0; i < todos.length; i++){
+                soma = soma + parseInt(todos[i].innerHTML);
+               
+                if  (menor > parseInt(todos[i].innerHTML)){
+                    menor = parseInt(todos[i].innerHTML);
+                }                
+                if ((parseInt(todos[i].innerHTML) % 7) ==  0){
+                    todos[i].style.color = "pink";
+                }
+                
+            }
+            alert("Soma  = " + soma);
+            alert("Menor = " + menor);
+            
+        }
+        function ola(pd){
+            //this referencia o objeto en questao.
+            alert(pd.innerHTML);
+        }
+        //Ex3 ao clicar eem um btn mude seu conteudo para clicado
+        //Ex4 dado uma imagem de btn vazio ao clicar muda a imagem para um botao apertado
+        
+        function ex3(b){
+            if(b.innerHTML == "Sim Clicado"){
+                b.innerHTML = "Não Clicado"
+            }else{
+                b.innerHTML = "Sim Clicado"   
+            }
+        }
+        function ex4(imgs){
+           
+            if(imgs.src == "https://aula-01-03-tunnes.c9users.io/on.png"){
+              imgs.src= "off.png";
+            }else{
+                imgs.src="on.png";
+            }
+        }
+        
+        </script>
+    </head>
+<body>
+    <br>--------------------------------------<br>
+    <button onclick="ex3(this)"> Não Clicado</button>
+    <br>--------------------------------------<br>
+    <img onclick="ex4(this)" src="on.png">
+    <br>--------------------------------------<br>
+    
+    <p onclick="ola(this)"> Ola Evento</p>
+   
+    <!--<p>20</p>-->
+    <!--<p>40</p>-->
+    <!--<p>50</p>-->
+    <!--<p>70</p>-->
+    <!--<p>10</p>-->
+    <!--<p>80</p>-->
+    
+    <!--<p id="p1">OLA MUNDO</p>-->
+    <!--<a id="a1" href="www.oul.com.br"> UOL </a>-->
+    <!-- <img id="im1"src="http://www.apple.com/br/ipod/home/images/social/og.jpg?201601060706" alt="lal"> -->
+    <hr>
+    <script>
+            getTudinho();
+          //olaDOM();
+          //olaDOM2();
+          //mudaSource();
+          //getTudinho();
+          //corDif();
+          //ex2();
+          
+    </script>
+</body>
+</html>

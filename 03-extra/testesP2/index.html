@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    
+    <body>
+        <h1>Primeiro</h1>
+        <h1>Segundo</h1>
+        <h1>Terceiro</h1>
+        <h1>Quarto</h1>
+        <h1>Quinto</h1>
+        <h1>Sexto</h1>
+    </body>
+    <script>
+        ex();
+        function ex(){
+           
+            var todosH1 = document.getElementsByTagName("h1");
+            todosH1 = [].slice.call(todosH1);
+            todosH1.forEach(function(elemento,index){
+               console.log(reverso(elemento.innerHTML));
+               console.log("É o "+index+" H1 ao contrario");
+            });
+            function reverso(palavra){
+                return [].slice.call(palavra).reverse().join("");
+            };
+        }
+    </script>
+</html>
