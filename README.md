@@ -6,10 +6,10 @@ Este repositório foi criado inicialmente para uso pessoal, porem resolvi dispon
 >  Bimestre **::** Data de Aula **::** Arquivos  
 
 **Bimestre 01** 
->  Noções  básicas de Js aplicado ao DOM. 
->  Conceitos iniciais de Js Funcional.
+> - Noções  básicas de Js aplicado ao DOM. 
+> - Conceitos iniciais de Js Funcional.
 
 **Bimestre 02**
->   Prototipação de objetos e classes.
->   Manipulaçao Funcional e Reativa de Arrays.
+> -  Prototipação de objetos e classes.
+> -  Manipulaçao Funcional e Reativa de Arrays.
 
