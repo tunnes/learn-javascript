@@ -1,6 +1,6 @@
 ## **Informações (Learn JavaScript)**
 <sub>
-Este repositório foi criado inicialmente para estudo relacionados a matéria <strong>ISW008</strong> (Programação de Sítios Internet) ministrada
+Este repositório foi criado inicialmente para estudos pessoais relacionados a matéria <strong>ISW008</strong> (Programação de Sítios Internet) ministrada
 pelo professor <strong>Alexandre Oliveira Garcia</strong> da <strong>Fatec Rubens Lara</strong>, porem resolvi disponibilizá-lo, caso queira localizar alguma aula ou informação em específico siga as instruções listadas 
 logo abaixo ou entre em contato via ayrton.tunes@outlook.com
 </sub>
