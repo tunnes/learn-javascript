@@ -1,15 +1,19 @@
-## **Informações**
+## **Informações (Learn JavaScript)**
+<sub>
+Este repositório foi criado inicialmente para estudo relacionados a matéria <strong>ISW008</strong> (Programação de Sítios Internet) ministrada
+pelo professor <strong>Alexandre Oliveira Garcia</strong> da <strong>Fatec Rubens Lara</strong>, porem resolvi disponibilizá-lo, caso queira localizar alguma aula ou informação em específico siga as instruções listadas 
+logo abaixo ou entre em contato via ayrton.tunes@outlook.com
+</sub>
 
-Este repositório foi criado inicialmente para uso pessoal, porem resolvi disponibilizá-lo, caso queira localizar alguma aula ou informação em específico siga as instruções listadas logo abaixo ou entre em contato via ayrton.tunes@outlook.com
+##
 
  **Navegação**
-> - Bimestre **::** Data de Aula **::** Arquivos  
+> <sub> Bimestre **::** Data de Aula **::** Arquivos </sub>  
 
 **Bimestre 01** 
-> - Noções  básicas de Js aplicado ao DOM. 
-> - Conceitos iniciais de Js Funcional.
+> <sub> Noções básicas de Js aplicado ao DOM.</sub>   
+> <sub> Conceitos iniciais de Js Funcional.</sub>  
 
 **Bimestre 02**
-> -  Prototipação de objetos e classes.
-> -  Manipulaçao Funcional e Reativa de Arrays.
-
+> <sub> Prototipação de objetos e classes.</sub>  
+> <sub> Manipulaçao Funcional e Reativa de Arrays.</sub>  
